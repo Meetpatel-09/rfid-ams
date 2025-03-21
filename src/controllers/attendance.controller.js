@@ -60,6 +60,7 @@ exports.getAttendance = async (req, res) => {
         });
 
         res.status(200).json({
+            msg: "Attendance Found Successfully",
             data: attendnace,
         });
     } catch (error) {
