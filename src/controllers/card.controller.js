@@ -3,11 +3,13 @@ const CardModel = require("../models/card.model");
 exports.createCard = async (req, res) => {
     try {
         await CardModel.deleteMany();
-        const card = new CardModel(req.body);
+        const card = new CardModel({
+            cardId: req.params.id,
+        });
 
         await card.save();
 
-        res.status(201).json({
+        res.status(200).json({
             msg: "Card Created Successfully",
             data: card,
         });
